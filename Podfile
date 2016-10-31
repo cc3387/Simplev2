@@ -1,8 +1,8 @@
 platform :ios, “10.0.2”
 use_frameworks!
-target ‘Simple’ do
+target ‘Simpleplusplus’ do
   pod 'JSQMessagesViewController'
-  pod 'Batch', '~>1.5.4'
+  pod 'Batch', '~>1.6'
   pod 'Firebase/Core'
   pod 'Firebase/AdMob'
   pod 'Firebase/Messaging'
