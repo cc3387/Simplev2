@@ -100,24 +100,22 @@ class ChatDetail: JSQMessagesViewController{
         //5 Sending notification to your friend's phone
         let devDeviceToken = convo_final.friend_phoneid_final
         print(devDeviceToken)
-        if let pushClient = BatchClientPush(apiKey: "DEV5805911AD95338EB397CDA0ED00", restKey: "a524aa85f96b3bc103188428b026bd5b") {
+        if let pushClient = BatchClientPush(apiKey: "5805911AD92366FDBBD35EE90C9E42", restKey: "a524aa85f96b3bc103188428b026bd5b") {
             
             pushClient.sandbox = false
             pushClient.customPayload = ["aps": ["badge": 1] as AnyObject]
             pushClient.groupId = "tests"
-            pushClient.message.title = "Simple"
+            pushClient.message.title = "Simple++"
             pushClient.message.body = ProfileLogin.username + " sent you a message!"
             pushClient.recipients.customIds = ["c657587b-969c-483e-89cb-7c5105af4c55"]
             pushClient.recipients.tokens.append(devDeviceToken)
             
-            if(convo_final.notification == "1"){
-                pushClient.send { (response, error) in
+            pushClient.send { (response, error) in
                     if let error = error {
                         print("Something happened while sending the push: \(response) \(error.localizedDescription)")
                     } else {
                         print("Push sent \(response)")
                     }
-                }
             }
             
         } else {

@@ -15,12 +15,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         //Start Batch
-        Batch.start(withAPIKey: "DEV5805911AD95338EB397CDA0ED00") // dev
-        // Batch.start(withAPIKey: "5805911AD92366FDBBD35EE90C9E42") // live
+        //Batch.start(withAPIKey: "DEV5805911AD95338EB397CDA0ED00") // dev
+        Batch.start(withAPIKey: "5805911AD92366FDBBD35EE90C9E42") // live
         // Register for push notifications
         BatchPush.registerForRemoteNotifications()
         
@@ -46,6 +45,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        let devDeviceToken = ProfileLogin.phoneid
+        if let pushClient = BatchClientPush(apiKey: "5805911AD92366FDBBD35EE90C9E42", restKey: "a524aa85f96b3bc103188428b026bd5b") {
+            
+            pushClient.sandbox = true
+            pushClient.customPayload = ["aps": ["badge": 0] as AnyObject]
+            pushClient.recipients.tokens.append(devDeviceToken)
+            
+            pushClient.send { (response, error) in
+                if let error = error {
+                    print("Something happened while sending the push: \(response) \(error.localizedDescription)")
+                } else {
+                    print("Push sent \(response)")
+                }
+            }
+        }
+
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
@@ -54,4 +69,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 }
-

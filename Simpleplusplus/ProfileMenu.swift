@@ -124,6 +124,13 @@ class ProfileMenu: UIViewController, UITableViewDataSource, UITableViewDelegate,
             }
         }
         
+        //Loading Section 1, Terms and Conditions in Menu
+        if(indexPath.section == 1 && sections[1].items[indexPath.row] == "Terms and Conditions"){
+            if let url = NSURL(string: "https://simple915.wordpress.com/2016/11/05/privacy-and-policy/") {
+                UIApplication.shared.openURL(url as URL)
+            }
+        }
+        
         //Loading Section 2, which is the friend notification
         if(indexPath.section == 2 && sections[2].items[indexPath.row] == "You have received \(FriendNotification.count) Notifications" ){
             loadnotification();

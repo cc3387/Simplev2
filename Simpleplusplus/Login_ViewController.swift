@@ -33,6 +33,8 @@ class Login : UIViewController{
                 
                 if(BatchPush.lastKnownPushToken() != nil){
                     ProfileLogin.phoneid = BatchPush.lastKnownPushToken()
+                    let ref = FIRDatabase.database().reference().child("users").child(ProfileLogin.uid)
+                    ref.updateChildValues(["Phoneid": ProfileLogin.phoneid])
                 }
                 else if(BatchPush.lastKnownPushToken() == nil){
                     //Do Nothing
