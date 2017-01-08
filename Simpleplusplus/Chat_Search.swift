@@ -138,16 +138,30 @@ class Chat_Search: UIViewController, UITableViewDataSource, UITableViewDelegate,
                         let chatfinal = source["chatfinal"] as! String
                         
                         convo_final.friend_Profile_final = username
-                        convo_final.friend_phoneid_final = phoneid
+                        //convo_final.friend_phoneid_final = phoneid
                         convo_final.chat_check_final = chatfinal
                         
                         print(convo_final.friend_Profile_final)
                         print(convo_final.friend_id_final)
-                        print(convo_final.friend_phoneid_final)
+                        //print(convo_final.friend_phoneid_final)
                         print(convo_final.chat_check_final)
                     }
         })
+            
+        var reftwo = FIRDatabase.database().reference().child("phone")
+            
+        reftwo.queryOrdered(byChild: "uid").queryEqual(toValue: convo_final.friend_id_final)
+                .observe(.childAdded, with: { snapshot in
+                    
+                    if let source = snapshot.value as? [String:AnyObject] {
+                        
+                        let phoneid = source["phoneid"] as! String
+                        convo_final.friend_phoneid_final = phoneid
+                        print("Friend phoneid " + convo_final.friend_phoneid_final)
+                    }
+        })
 
+            
         loadDestinationChat()
             
         }
@@ -168,13 +182,26 @@ class Chat_Search: UIViewController, UITableViewDataSource, UITableViewDelegate,
                         let chatfinal = source["chatfinal"] as! String
                         
                         convo_final.friend_Profile_final = username
-                        convo_final.friend_phoneid_final = phoneid
+                        //convo_final.friend_phoneid_final = phoneid
                         convo_final.chat_check_final = chatfinal
                         
                         print(convo_final.friend_id_final)
                         print(convo_final.friend_Profile_final)
-                        print(convo_final.friend_phoneid_final)
+                        //print(convo_final.friend_phoneid_final)
                         print(convo_final.chat_check_final)
+                    }
+            })
+            
+            var reftwo = FIRDatabase.database().reference().child("phone")
+            
+            reftwo.queryOrdered(byChild: "uid").queryEqual(toValue: convo_final.friend_id_final)
+                .observe(.childAdded, with: { snapshot in
+                    
+                    if let source = snapshot.value as? [String:AnyObject] {
+                        
+                        let phoneid = source["phoneid"] as! String
+                        convo_final.friend_phoneid_final = phoneid
+                        print("Friend phoneid " + convo_final.friend_phoneid_final)
                     }
             })
         

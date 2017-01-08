@@ -140,9 +140,9 @@ public class BatchClientPush: NSObject, URLSessionDelegate {
         
         body["message"] = message.dictionaryRepresentation() as AnyObject?
         
-        if let customPayload = customPayload {
-            body["custom_payload"] = String(data: customPayload as Data, encoding: String.Encoding.utf8) as AnyObject?
-        }
+//        if let customPayload = customPayload {
+//            body["custom_payload"] = String(data: customPayload as Data, encoding: String.Encoding.utf8) as AnyObject?
+//        }
         
         if let deeplink = deeplink {
             body["deeplink"] = deeplink as AnyObject?

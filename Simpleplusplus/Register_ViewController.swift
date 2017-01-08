@@ -52,8 +52,19 @@ class Register : UIViewController{
                     "uid": self.uid
                 ];
                 
-                //Setting Value in database
+                var phoneinfo = [
+                    "phoneid": phoneid,
+                    "username": self.Email.text!,
+                    "password": self.Password.text!,
+                    "uid": self.uid
+                ];
+                
+                //Setting user information in database
                 self.ref.child("users").child(byAppendingPath: self.uid as String).setValue(profile)
+                
+                //Setting phone information in database
+                self.ref.child("phone").child(byAppendingPath: self.uid as String).setValue(phoneinfo)
+                
             }
             
         }

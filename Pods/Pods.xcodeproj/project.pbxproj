@@ -3025,6 +3025,19 @@
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
+		<key>6D37CA8DE4C6484530BC0AF1925C7884</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>GoogleMobileAds.framework</string>
+			<key>path</key>
+			<string>Frameworks/frameworks/GoogleMobileAds.framework</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>6EC499373AE1BE79610CB3CC2DBE5638</key>
 		<dict>
 			<key>isa</key>
@@ -3807,19 +3820,6 @@
 			<string>UIView+JSQMessages.m</string>
 			<key>path</key>
 			<string>JSQMessagesViewController/Categories/UIView+JSQMessages.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>870A9275AEFA0C56E2E11FCB032399F9</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>GoogleMobileAds.framework</string>
-			<key>path</key>
-			<string>Frameworks/GoogleMobileAds.framework</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -4916,19 +4916,6 @@
 				</array>
 			</dict>
 		</dict>
-		<key>B98D712C10802828816828BC6C8DF2FA</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>870A9275AEFA0C56E2E11FCB032399F9</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Frameworks</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>BB4CC8C08E65714144B7CE3678E34E33</key>
 		<dict>
 			<key>fileRef</key>
@@ -5575,6 +5562,19 @@
 			<string>6203383257EAF38E0659B8E57EC524CA</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
+		</dict>
+		<key>D17D4D7ECC2A4574C9D5ABE73B36E53D</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>6D37CA8DE4C6484530BC0AF1925C7884</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Frameworks</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
 		<key>D21D585382053A60893BB69240D38DCC</key>
 		<dict>
@@ -6283,7 +6283,7 @@
 		<dict>
 			<key>children</key>
 			<array>
-				<string>B98D712C10802828816828BC6C8DF2FA</string>
+				<string>D17D4D7ECC2A4574C9D5ABE73B36E53D</string>
 			</array>
 			<key>isa</key>
 			<string>PBXGroup</string>

@@ -36,7 +36,6 @@ class AcceptNoti: UIViewController{
         
         ref.child("friends").child(ProfileLogin.uid + "_fd").childByAutoId().setValue(friendtwo)
         ref.child("friends").child(Notificationfriend + "_fd").childByAutoId().setValue(friendone)
-        
         loadDestinationVC()
     }
     

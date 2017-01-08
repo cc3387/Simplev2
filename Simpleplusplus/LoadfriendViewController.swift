@@ -27,7 +27,7 @@ class Transfer : UIViewController{
         
         self.activityIndicator.startAnimating()
         self.activityIndicator.isHidden = false
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5){
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2){
             self.activityIndicator.stopAnimating()
             self.activityIndicator.isHidden = true
             self.loadDestinationVC()

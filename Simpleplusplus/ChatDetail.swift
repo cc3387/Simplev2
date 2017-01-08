@@ -104,7 +104,7 @@ class ChatDetail: JSQMessagesViewController{
             
             pushClient.sandbox = false
             pushClient.customPayload = ["aps": ["badge": 1] as AnyObject]
-            pushClient.groupId = "tests"
+            pushClient.groupId = "Official"
             pushClient.message.title = "Simple++"
             pushClient.message.body = ProfileLogin.username + " sent you a message!"
             pushClient.recipients.customIds = ["c657587b-969c-483e-89cb-7c5105af4c55"]

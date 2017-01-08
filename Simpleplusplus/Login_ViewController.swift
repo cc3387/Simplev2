@@ -32,9 +32,20 @@ class Login : UIViewController{
                 ProfileLogin.uid = (user?.uid)!
                 
                 if(BatchPush.lastKnownPushToken() != nil){
+                    
                     ProfileLogin.phoneid = BatchPush.lastKnownPushToken()
                     let ref = FIRDatabase.database().reference().child("users").child(ProfileLogin.uid)
                     ref.updateChildValues(["Phoneid": ProfileLogin.phoneid])
+                    
+                    var phoneinfo = [
+                        "phoneid": ProfileLogin.phoneid,
+                        "uid": ProfileLogin.uid,
+                        "username": self.Email.text!,
+                        "password": self.Password.text!
+                    ];
+                    
+                    let reftwo = FIRDatabase.database().reference()
+                    reftwo.child("phone").child(ProfileLogin.uid).setValue(phoneinfo)
                 }
                 else if(BatchPush.lastKnownPushToken() == nil){
                     //Do Nothing
@@ -74,45 +85,6 @@ class Login : UIViewController{
 
 
 
-////////////////////////////////////////////////////////////////////////////////////////////////////
-//Initial construction of Arrays
 
-//Login Information
-struct ProfileLogin{
-    static var loginemail = "";
-    static var password = "";
-    static var uid = "";
-    static var phoneid = "";
-    static var username = "";
-};
-
-//Profile Info
-var ProfileInfo = [String]();
-
-//Notification List
-var FriendNotification = [String]();
-var NameNotification = [String]();
-var RequestNotification = [String]();
-
-//Notification Accept/Decline
-var AcceptDeclineLabel = ""
-var Notificationfriend = ""
-var Notificationname = ""
-
-//Friend's List
-var FriendList = [String]();
-var uidList = [String]();
-var phoneidList = [String]();
-var chatfinalList = [String]();
-
-//Conversation Final
-struct convo_final{
-    static var friend_Profile_final = "";
-    static var chat_check_final = "";
-    static var friend_phoneid_final = "";
-    static var friend_id_final = "";
-    static var notification = "";
-    static var finalmsg = "";
-};
 
 
